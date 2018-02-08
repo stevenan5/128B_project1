@@ -1,9 +1,9 @@
-function [M3] = part_ii(eqn, pert_re, pert_im)
+function [P] = part_ii(eqn, pert_re, pert_im)
 %part_i Contains code for part (ii) of the project
 %   eqn specifies what equation is used
 %   default is c = 0.36 + 0.1i
 %   1 is c = -0.123 - 0.745i
-%   pert is the perturbation of initial real or imaginary value
+%   pert is degree of perturbation for the initial real or imaginary value
 %   Modified version of the code from p.100 of Greenbaum and Chartier
 
 switch eqn
@@ -17,16 +17,38 @@ switch eqn
         fixpt2 = 0.639034 - 0.359625i;
 end
 
-x_sample = 200 * (1.8 + pert_re) + 1;
-y_sample = 200 * (0.7 + pert_im) + 1;
+switch pert_re
+    case 1 % by 0.1
+        x_sample = 381;
+        nx = -1.9;
+    case 2 % by 0.2
+        x_sample = 401;
+        nx = -2;
+    otherwise
+        x_sample = 361;
+        nx = -1.8;
+end
+
+switch pert_im
+    case 1 % by 0.1
+        y_sample = 161;
+        ny = -0.8;
+    case 2 % by 0.2
+        y_sample = 181;
+        ny = -0.9;
+    otherwise
+        y_sample = 141;
+        ny = -0.7;
+end
+
 
 % Initialize array of point colors to 2 (white).
-M3 = 2*ones(y_sample, x_sample);
+P = 2*ones(int16(y_sample), int16(x_sample));
 
 parfor j=1:y_sample  % Try initial values with imaginary parts between
-  y = -.7 - pert_im + (j-1)*.01;      %   -0.7 - pert_im and 0.7 + pert_im
+  y = ny + (j-1)*.01;      
   for i=1:x_sample   % and with real parts between
-    x = -1.8 - pert_re + (i-1)*.01;   %   -1.8 - pert_re and 1.8 + pert_re.
+    x = nx + (i-1)*.01;   
     z = x + 1i*y;             % 1i is the MATLAB symbol for sqrt(-1).
     zk = z;
     iflag1 = 0;               % iflag1 and iflag2 count the number of iterations
@@ -50,7 +72,7 @@ parfor j=1:y_sample  % Try initial values with imaginary parts between
       end
     end
     if iflag1 >= 5 | iflag2 >= 5 | kount >= 100   % If orbit is bounded, set this
-      M3(j,i) = 1;                                %   point color to 1 (red).
+      P(j,i) = 1;                                %   point color to 1 (red).
     end
   end
 end
