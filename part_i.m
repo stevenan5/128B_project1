@@ -36,7 +36,7 @@ parfor j=1:141                   % Try initial values with imaginary parts betwe
       end
     end
     if iflag1 >= 5 | iflag2 >= 5 | kount >= 100   % If orbit is bounded, set this
-      M1(j,i) = 1;                                  %   point color to 1 (red).
+      M1(j,i) = 1;                                %   point color to 1 (red).
     end
   end
 end
@@ -47,12 +47,12 @@ phi = @(z) z.^2;          % Define the function whose fixed points we seek.
 
 fixpt1 = 0;     % This is the fixed point.
 
-M2 = 2*ones(200,200);          % Initialize array of point colors to 2 (white).
+M2 = 2*ones(200,200);         % Initialize array of point colors to 2 (white).
 
-parfor j=1:200                  % Try initial values with imaginary parts between
-  y = -1 + (j-1)*.01;        %   -0.7 and 0.7
+parfor j=1:200                % Try initial values with imaginary parts between
+  y = -1 + (j-1)*.01;         %   -1 and 1
   for i=1:200                 % and with real parts between
-    x = -1+ (i-1)*.01;     %   -1.8 and 1.8.
+    x = -1+ (i-1)*.01;        %   -1 and 1.
     z = x + 1i*y;             % 1i is the MATLAB symbol for sqrt(-1).
     zk = z;
     iflag1 = 0;               % iflag1 count the number of iterations

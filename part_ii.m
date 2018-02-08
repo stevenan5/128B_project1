@@ -1,18 +1,32 @@
-function [M3] = part_ii()
+function [M3] = part_ii(eqn, pert_re, pert_im)
 %part_i Contains code for part (ii) of the project
+%   eqn specifies what equation is used
+%   default is c = 0.36 + 0.1i
+%   1 is c = -0.123 - 0.745i
+%   pert is the perturbation of initial real or imaginary value
 %   Modified version of the code from p.100 of Greenbaum and Chartier
-    
-phi = @(z) z^2 + 0.36 + 0.1i;          % Define the function whose fixed points we seek.
 
-fixpt1 = 0.360966 + 0.359625i;     % These are the fixed points.
-fixpt2 = 0.639034 - 0.359625i;
+switch eqn
+    case 1
+        phi = @(z) z^2 - 0.123 - 0.745i; % Define the function whose fixed points we seek.
+        fixpt1 = -0.276582 - 0.479666i;  % These are the fixed points.
+        fixpt2 = 1.27658 - 0.479666i;
+    otherwise
+        phi = @(z) z^2 + 0.36 + 0.1i; 
+        fixpt1 = 0.360966 + 0.359625i;
+        fixpt2 = 0.639034 - 0.359625i;
+end
 
-M3 = 2*ones(141,361);          % Initialize array of point colors to 2 (white).
+x_sample = 200 * (1.8 + pert_re) + 1;
+y_sample = 200 * (0.7 + pert_im) + 1;
 
-parfor j=1:141                   % Try initial values with imaginary parts between
-  y = -.7 + (j-1)*.01;        %   -0.7 and 0.7
-  for i=1:361                 % and with real parts between
-    x = -1.8 + (i-1)*.01;     %   -1.8 and 1.8.
+% Initialize array of point colors to 2 (white).
+M3 = 2*ones(y_sample, x_sample);
+
+parfor j=1:y_sample  % Try initial values with imaginary parts between
+  y = -.7 - pert_im + (j-1)*.01;      %   -0.7 - pert_im and 0.7 + pert_im
+  for i=1:x_sample   % and with real parts between
+    x = -1.8 - pert_re + (i-1)*.01;   %   -1.8 - pert_re and 1.8 + pert_re.
     z = x + 1i*y;             % 1i is the MATLAB symbol for sqrt(-1).
     zk = z;
     iflag1 = 0;               % iflag1 and iflag2 count the number of iterations
@@ -36,7 +50,7 @@ parfor j=1:141                   % Try initial values with imaginary parts betwe
       end
     end
     if iflag1 >= 5 | iflag2 >= 5 | kount >= 100   % If orbit is bounded, set this
-      M3(j,i) = 1;                                  %   point color to 1 (red).
+      M3(j,i) = 1;                                %   point color to 1 (red).
     end
   end
 end
