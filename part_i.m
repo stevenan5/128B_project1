@@ -2,14 +2,14 @@ function [M1, M2] = part_i()
 %part_i Contains code for part (i) of the project
 %   A copy of the code on p.100 of Greenbaum and Chartier
     
-phi = inline('z^2 - 1.25');          % Define the function whose fixed points we seek.
+phi = @(z) z^2 - 1.25;          % Define the function whose fixed points we seek.
 
 fixpt1 = (1 + sqrt(6))/2;     % These are the fixed points.
 fixpt2 = (1 - sqrt(6))/2;
 
 M1 = 2*ones(141,361);          % Initialize array of point colors to 2 (white).
 
-for j=1:141                   % Try initial values with imaginary parts between
+parfor j=1:141                   % Try initial values with imaginary parts between
   y = -.7 + (j-1)*.01;        %   -0.7 and 0.7
   for i=1:361                 % and with real parts between
     x = -1.8 + (i-1)*.01;     %   -1.8 and 1.8.
@@ -43,13 +43,13 @@ end
 
 % code for the unit circle a la c = 0.
 
-phi = inline('z^2');          % Define the function whose fixed points we seek.
+phi = @(z) z.^2;          % Define the function whose fixed points we seek.
 
 fixpt1 = 0;     % This is the fixed point.
 
 M2 = 2*ones(200,200);          % Initialize array of point colors to 2 (white).
 
-for j=1:200                  % Try initial values with imaginary parts between
+parfor j=1:200                  % Try initial values with imaginary parts between
   y = -1 + (j-1)*.01;        %   -0.7 and 0.7
   for i=1:200                 % and with real parts between
     x = -1+ (i-1)*.01;     %   -1.8 and 1.8.

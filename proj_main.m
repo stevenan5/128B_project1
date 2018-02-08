@@ -22,7 +22,7 @@ axis xy
 %% Part ii
 % parfor is used in the interest of runtime.
 M3 = part_ii();
-figure(2);
+figure(3);
 colormap([1 0 0; 1 1 1]);      
 image([-1.8 1.8],[-.7 .7],M3), 
 axis xy                        

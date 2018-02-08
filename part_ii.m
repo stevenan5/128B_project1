@@ -2,7 +2,7 @@ function [M3] = part_ii()
 %part_i Contains code for part (ii) of the project
 %   Modified version of the code from p.100 of Greenbaum and Chartier
     
-phi = inline('z^2 + 0.36 + 0.1i');          % Define the function whose fixed points we seek.
+phi = @(z) z^2 + 0.36 + 0.1i;          % Define the function whose fixed points we seek.
 
 fixpt1 = 0.360966 + 0.359625i;     % These are the fixed points.
 fixpt2 = 0.639034 - 0.359625i;
