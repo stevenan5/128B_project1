@@ -7,6 +7,7 @@ clear;
 %% Part i
 
 % the code for plotting has been moved outside of the function 
+
 [M1, M2] = part_i();
 figure(1);
 colormap([1 0 0; 1 1 1]);      % Set the color map, 1 is red, 2 is white.
@@ -34,7 +35,7 @@ P4 = part_ii(1, 0, 0);
 P5 = part_ii(1, 1, 1);
 P6 = part_ii(1, 2, 2);
 
-figure(2);
+figure(3);
 colormap([1 0 0; 1 1 1]);
 subplot(2,3,1)
 image([-1.8 1.8],[-.7 .7],P1),
@@ -71,3 +72,10 @@ image([-2 2],[-.9 .9],P6),
 axis xy
 title('c=-0.123-0.745i')
 xlabel('pert: 2, 2')
+
+%% Part iii 
+M = part_iii(1);
+figure(4);
+colormap([1 0 0; 1 1 1]);
+image([-1.8 1.8],[-.7 .7],M), % This plots the results.
+axis xy    
