@@ -1,0 +1,11 @@
+---
+date: "February 13, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Part IV
+
+The \emph{fractal dimension} is a measure of roughness of an object. If one thinks of an object as having a sort of mass, then the fractal dimension is the power by which it's mass changes as its size is scaled. When the object is placed on a grid, its mass can be visualized as the number of boxes touched contacted by the object. As the object (or equivalently the grid) scales in size, then the mass will scale by the scaling factor raised to its fractal dimension. That is, if an object touches $n$ boxes at size $1$, and touches $m$ boxes at size $\frac{1}{2}$, then its fractal dimension $d$ is given by $d\approx\log_{2}{\frac{m}{n}}$. To emperically test this, we can measure the change in mass for many different sclaing factors, take the log of the output and find the slope $\left(d\right)$ with linear regression.
