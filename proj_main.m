@@ -74,8 +74,8 @@ title('c=-0.123-0.745i')
 xlabel('pert: 2, 2')
 
 %% Part iii 
-M = part_iii(1);
+Res = part_iii(1);
 figure(4);
-colormap([1 0 0; 1 1 1]);
-image([-1.8 1.8],[-.7 .7],M), % This plots the results.
+plot(real(Res), imag(Res), '.')
+axis equal
 axis xy    
