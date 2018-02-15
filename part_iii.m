@@ -3,23 +3,36 @@ function [res] = part_iii(eqn)
 %   eqn is the equation number.
 %   built off of Greenbaum and Chartier's code
     
-switch eqn
+switch eqn           % Define the constant in question.
     case 0
         c = 0.279;
+        
     case 1
         c = 0;
+        x_sample = 2001;
+        y_sample = 2001;
+        nx = -1;
+        ny = -1;
     case 2
-        c = - 0.123 - 0.745i; % Define the constant in question.
+        c = - 0.123 - 0.745i;
+        x_sample = 3601;
+        y_sample = 1401;
+        nx = -1.8;
+        ny = -0.7;
     otherwise
         c = 0.36 + 0.1i; 
+        x_sample = 3601;
+        y_sample = 1401;
+        nx = -1.8;
+        ny = -0.7;
 end
 
 res = zeros(1,1000);            % Initialize vector for bounded points
 count = 1;                    % keep track of index in result vector
-for j=1:201                   % Try initial values with imaginary parts between
-  y = -1 + (j-1)*.01;        %   -0.7 and 0.7
-  for i=1:201                 % and with real parts between 
-    x = -1 + (i-1)*.01;     %   -1.8 and 1.8.
+for j=1:y_sample                   % Try initial values with imaginary parts between
+  y = ny + (j-1)*.001;        %   -0.7 and 0.7
+  for i=1:x_sample                 % and with real parts between 
+    x = nx + (i-1)*.001;     %   -1.8 and 1.8.
     if x == 0 && y == 0       % skip the origin
           continue;
     end

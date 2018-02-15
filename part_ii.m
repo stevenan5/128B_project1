@@ -18,24 +18,24 @@ switch eqn
 end
 
 switch pert_re
-    case 1 % by 0.1
-        x_sample = 381;
-        nx = -1.9;
-    case 2 % by 0.2
-        x_sample = 401;
-        nx = -2;
+    case 1 % by 0.4
+        x_sample = 441;
+        nx = -2.2;
+    case 2 % by 0.6
+        x_sample = 481;
+        nx = -2.4;
     otherwise
         x_sample = 361;
         nx = -1.8;
 end
 
 switch pert_im
-    case 1 % by 0.1
-        y_sample = 161;
-        ny = -0.8;
-    case 2 % by 0.2
-        y_sample = 181;
-        ny = -0.9;
+    case 1 % by 0.4
+        y_sample = 221;
+        ny = -1.1;
+    case 2 % by 0.6
+        y_sample = 261;
+        ny = -1.3;
     otherwise
         y_sample = 141;
         ny = -0.7;
@@ -43,7 +43,7 @@ end
 
 
 % Initialize array of point colors to 2 (white).
-P = 2*ones(int16(y_sample), int16(x_sample));
+P = 2*ones(y_sample, x_sample);
 
 parfor j=1:y_sample  % Try initial values with imaginary parts between
   y = ny + (j-1)*.01;      
