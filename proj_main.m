@@ -102,3 +102,27 @@ plot(real(J4), imag(J4), '.')
 axis equal
 axis xy
 title('c = 0.36 + 0.1i')
+
+%% Part viii
+% create new colormap (collapse jet into matrix half the height)
+% this is to emphasize the red around the border
+j = flipud(jet(520));
+halfjet = j(1:130, :);
+
+figure(5);
+subplot(1,2,1)
+[MB1, count] = part_viii(0);
+colormap( [jet(520); halfjet; 0 0 0] );
+imagesc(linspace(-2.1, 0.5, 4000), linspace(-1.4, 1.4, 4000), log(count));
+axis equal
+axis xy
+axis off
+title('Mandelbrot Set')
+
+subplot(1,2,2)
+[MB2, count] = part_viii(1);
+imagesc(linspace(0.2, 0.45, 4000), linspace(0.45, 0.71, 4000), log(count));
+axis equal
+axis xy
+axis off
+title('1985 Sci. Amer. Cover')
