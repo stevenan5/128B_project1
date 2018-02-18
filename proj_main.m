@@ -79,29 +79,31 @@ title('c=-0.123-0.745i')
 xlabel('pert: 2, 2')
 
 %% Part iii 
-figure(4);
+
 J1 = part_iii(0);
+J2 = part_iii(1);
+J3 = part_iii(2);
+J4 = part_iii(3);
+
+figure(4);
 subplot(2,2,1)
 plot(real(J1), imag(J1), '.')
 axis equal
 axis xy
 title('c = -1.25')
 
-J2 = part_iii(1);
 subplot(2,2,2)
 plot(real(J2), imag(J2), '.')
 axis equal
 axis xy
 title('c = 0')
 
-J3 = part_iii(2);
 subplot(2,2,3)
 plot(real(J3), imag(J3), '.')
 axis equal
 axis xy
 title('c = - 0.123 - 0.745i')
 
-J4 = part_iii(3);
 subplot(2,2,4)
 plot(real(J4), imag(J4), '.')
 axis equal
@@ -109,23 +111,50 @@ axis xy
 title('c = 0.36 + 0.1i')
 
 %% Part vi
-[CJ1, count] = part_vi(- 0.123 - 0.745i);
+[count] = part_vi(0);
+[count1] = part_vi(1);
+[count2] = part_vi(2);
+[count3] = part_vi(3);
+
 figure(6);
+subplot(2, 2, 1);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count));
 axis equal
 axis xy
 axis off
+title('c = -1.25')
 
+subplot(2, 2, 2);
+colormap( [jet(520); halfjet; 0 0 0] );
+imagesc(linspace(-1, 1, 2001), linspace(-1, 1, 2001), log(count1));
+axis equal
+axis xy
+axis off
+title('c = 0')
+
+subplot(2, 2, 3);
+colormap( [jet(520); halfjet; 0 0 0] );
+imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count2));
+axis equal
+axis xy
+axis off
+title('c = - 0.123 - 0.745i')
+
+subplot(2, 2, 4);
+colormap( [jet(520); halfjet; 0 0 0] );
+imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count3));
+axis equal
+axis xy
+axis off
+title('c = 0.36 + 0.1i')
 %% Part viii
-% create new colormap (collapse jet into matrix half the height)
-% this is to emphasize the red around the border
-j = flipud(jet(520));
-halfjet = j(1:130, :);
+
+[count] = part_viii(0);
+[count2] = part_viii(1);
 
 figure(10);
 subplot(1,2,1)
-[MB1, count] = part_viii(0);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-2.1, 0.5, 4000), linspace(-1.4, 1.4, 4000), log(count));
 axis equal
@@ -134,8 +163,7 @@ axis off
 title('Mandelbrot Set')
 
 subplot(1,2,2)
-[MB2, count] = part_viii(1);
-imagesc(linspace(0.2, 0.45, 4000), linspace(0.45, 0.71, 4000), log(count));
+imagesc(linspace(0.2, 0.45, 4000), linspace(0.45, 0.71, 4000), log(count2));
 axis equal
 axis xy
 axis off

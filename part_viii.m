@@ -1,4 +1,4 @@
-function [res, iter] = part_viii(view)
+function [iter] = part_viii(view)
 %PART_VIII Computes the Mandelbrot set
 %   view is  full set or scientific american perspective 
 %   Best guess is that the 1985 scientific american cover is btwn
@@ -21,8 +21,6 @@ for k = 1:200
     bound = abs(Z) <= 2;
 	iter = iter + bound;	        
 end
-
-    res = Z;
 
 end
 
