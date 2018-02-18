@@ -74,8 +74,31 @@ title('c=-0.123-0.745i')
 xlabel('pert: 2, 2')
 
 %% Part iii 
-Res = part_iii(1);
 figure(4);
-plot(real(Res), imag(Res), '.')
+J1 = part_iii(0);
+subplot(2,2,1)
+plot(real(J1), imag(J1), '.')
 axis equal
-axis xy    
+axis xy
+title('c = -1.25')
+
+J2 = part_iii(1);
+subplot(2,2,2)
+plot(real(J2), imag(J2), '.')
+axis equal
+axis xy
+title('c = 0')
+
+J3 = part_iii(2);
+subplot(2,2,3)
+plot(real(J3), imag(J3), '.')
+axis equal
+axis xy
+title('c = - 0.123 - 0.745i')
+
+J4 = part_iii(3);
+subplot(2,2,4)
+plot(real(J4), imag(J4), '.')
+axis equal
+axis xy
+title('c = 0.36 + 0.1i')

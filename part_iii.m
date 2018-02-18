@@ -5,8 +5,11 @@ function [res] = part_iii(eqn)
     
 switch eqn           % Define the constant in question.
     case 0
-        c = 0.279;
-        
+        c = -1.25;
+        x_sample = 3601;
+        y_sample = 1401;
+        nx = -1.8;
+        ny = -0.7;
     case 1
         c = 0;
         x_sample = 2001;
