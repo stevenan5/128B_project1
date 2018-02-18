@@ -4,6 +4,11 @@
 clc;
 clear;
 
+% create new colormap (collapse jet into matrix half the height)
+% this is to emphasize the red around the border
+j = flipud(jet(520));
+halfjet = j(1:130, :);
+
 %% Part i
 
 % the code for plotting has been moved outside of the function 
@@ -103,13 +108,22 @@ axis equal
 axis xy
 title('c = 0.36 + 0.1i')
 
+%% Part vi
+[CJ1, count] = part_vi(- 0.123 - 0.745i);
+figure(6);
+colormap( [jet(520); halfjet; 0 0 0] );
+imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count));
+axis equal
+axis xy
+axis off
+
 %% Part viii
 % create new colormap (collapse jet into matrix half the height)
 % this is to emphasize the red around the border
 j = flipud(jet(520));
 halfjet = j(1:130, :);
 
-figure(5);
+figure(10);
 subplot(1,2,1)
 [MB1, count] = part_viii(0);
 colormap( [jet(520); halfjet; 0 0 0] );
