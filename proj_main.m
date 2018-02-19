@@ -118,7 +118,7 @@ title('c = 0.36 + 0.1i')
 
 figure(6);
 subplot(2, 2, 1);
-colormap( [jet(520); halfjet; 0 0 0] );
+%colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count));
 axis equal
 axis xy
@@ -126,7 +126,7 @@ axis off
 title('c = -1.25')
 
 subplot(2, 2, 2);
-colormap( [jet(520); halfjet; 0 0 0] );
+%colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1, 1, 2001), linspace(-1, 1, 2001), log(count1));
 axis equal
 axis xy
@@ -134,7 +134,7 @@ axis off
 title('c = 0')
 
 subplot(2, 2, 3);
-colormap( [jet(520); halfjet; 0 0 0] );
+%colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count2));
 axis equal
 axis xy
@@ -142,12 +142,13 @@ axis off
 title('c = - 0.123 - 0.745i')
 
 subplot(2, 2, 4);
-colormap( [jet(520); halfjet; 0 0 0] );
+
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count3));
 axis equal
 axis xy
 axis off
 title('c = 0.36 + 0.1i')
+colormap( [jet(520); halfjet; 0 0 0] );
 %% Part viii
 
 [count] = part_viii(0);
