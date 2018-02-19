@@ -31,7 +31,7 @@ iter = zeros(size(Z));
 for k = 1:100
 
 	Z = Z.^2 + C;
-    bound = abs(Z) <= 2;
+    bound = abs(Z) < 100;
 	iter = iter + bound;	        
 end
     
