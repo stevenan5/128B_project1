@@ -19,3 +19,10 @@ octave-workspace
 
 # Simulink autosave extension
 .autosave
+
+# Latex aux files.
+*.aux
+*.log
+*.pdf
+*.gz
+
