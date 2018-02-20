@@ -84,10 +84,10 @@ xlabel('pert: 2, 2')
 
 %% Part iii 
 
-J1 = part_iii(0);
-J2 = part_iii(1);
-J3 = part_iii(2);
-J4 = part_iii(3);
+[J1, J1_matrix] = part_iii(0);
+[J2, J2_matrix] = part_iii(1);
+[J3, J3_matrix] = part_iii(2);
+[J4, J4_matrix] = part_iii(3);
 
 figure(9);
 plot(real(J1), imag(J1), '.')
