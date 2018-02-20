@@ -1,6 +1,7 @@
-function [res] = part_iii(eqn)
+function [res, res_mat] = part_iii(eqn)
 %part_iii Inverse iteration algorithm for computing Julia set
 %   eqn is the equation number.
+%   res_mat is the result, but in matrix form
 %   built off of Greenbaum and Chartier's code
     
 switch eqn           % Define the constant in question.
@@ -31,7 +32,7 @@ switch eqn           % Define the constant in question.
 end
 
 res = zeros(1,1000);            % Initialize vector for bounded points
-count = 1;                    % keep track of index in result vector
+count = 0;                    % keep track of index in result vector
 for j=1:y_sample                   % Try initial values with imaginary parts between
   y = ny + (j-1)*.001;        %   -0.7 and 0.7
   for i=1:x_sample                 % and with real parts between 
@@ -62,8 +63,25 @@ for j=1:y_sample                   % Try initial values with imaginary parts bet
     end
     %if real(zk)^2 + imag(zk)^2 <= 4    % If orbit is bounded, add this
      if abs(zk) <= 2
-        res(count) = zk;
         count = count + 1;
+        res(count) = zk;
+
     end
   end
+end
+% make the result into a matrix for (iv)
+[X, Y] = meshgrid(linspace(nx, -nx, -nx * 2000 + 1), linspace(ny, -ny, -ny * 2000 + 1));
+Z = X + 1i * Y;
+res_mat = zeros(-ny * 2000 + 1, -nx * 2000 + 1);
+for i=1:count
+    
+      check = abs(Z - res(i));
+      min_row = min(check, [], 2);
+      min_col = min(check, [], 1);
+      [~, row_ind] = min(min_row);
+      [~, col_ind] = min(min_col);
+      res_mat(row_ind, col_ind) = 1;
+      
+end
+
 end

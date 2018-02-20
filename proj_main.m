@@ -42,37 +42,41 @@ P6 = part_ii(1, 2, 2);
 
 figure(3);
 colormap([1 0 0; 1 1 1]);
-subplot(2,3,1)
 image([-1.8 1.8],[-.7 .7],P1),
 axis xy
 title('c=0.36+0.1i')
 xlabel('no perturb')
 
-subplot(2,3,2)
+figure(4);
+colormap([1 0 0; 1 1 1]);
 image([-1.9 1.9],[-.8 .8],P2),
 axis xy
 title('c=0.36+0.1i')
 xlabel('pert: 1, 1')
 
-subplot(2,3,3)
+figure(5);
+colormap([1 0 0; 1 1 1]);
 image([-2 2],[-.9 .9],P3), 
 axis xy
 title('c=0.36+0.1i')
 xlabel('pert: 2, 2')
 
-subplot(2,3,4)
+figure(6);
+colormap([1 0 0; 1 1 1]);
 image([-1.8 1.8],[-.7 .7],P4), 
 axis xy
 title('c=-0.123-0.745i')
 xlabel('no perturb')
 
-subplot(2,3,5)
+figure(7);
+colormap([1 0 0; 1 1 1]);
 image([-1.9 1.9],[-.8 .8],P5),
 axis xy
 title('c=-0.123-0.745i')
 xlabel('pert: 1, 1')
 
-subplot(2,3,6)
+figure(8);
+colormap([1 0 0; 1 1 1]);
 image([-2 2],[-.9 .9],P6), 
 axis xy
 title('c=-0.123-0.745i')
@@ -85,26 +89,25 @@ J2 = part_iii(1);
 J3 = part_iii(2);
 J4 = part_iii(3);
 
-figure(4);
-subplot(2,2,1)
+figure(9);
 plot(real(J1), imag(J1), '.')
 axis equal
 axis xy
 title('c = -1.25')
 
-subplot(2,2,2)
+figure(10);
 plot(real(J2), imag(J2), '.')
 axis equal
 axis xy
 title('c = 0')
 
-subplot(2,2,3)
+figure(11);
 plot(real(J3), imag(J3), '.')
 axis equal
 axis xy
 title('c = - 0.123 - 0.745i')
 
-subplot(2,2,4)
+figure(12);
 plot(real(J4), imag(J4), '.')
 axis equal
 axis xy
@@ -120,33 +123,32 @@ DJ1 = part_iv_i(J1)
 [count2] = part_vi(2);
 [count3] = part_vi(3);
 
-figure(6);
-subplot(2, 2, 1);
-%colormap( [jet(520); halfjet; 0 0 0] );
+figure(13);
+colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count));
 axis equal
 axis xy
 axis off
 title('c = -1.25')
 
-subplot(2, 2, 2);
-%colormap( [jet(520); halfjet; 0 0 0] );
+figure(14);
+colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1, 1, 2001), linspace(-1, 1, 2001), log(count1));
 axis equal
 axis xy
 axis off
 title('c = 0')
 
-subplot(2, 2, 3);
-%colormap( [jet(520); halfjet; 0 0 0] );
+figure(15);
+colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count2));
 axis equal
 axis xy
 axis off
 title('c = - 0.123 - 0.745i')
 
-subplot(2, 2, 4);
-
+figure(16);
+colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count3));
 axis equal
 axis xy
@@ -169,8 +171,7 @@ for i = 0:3
    rou4(i + 1) = exp(1 / 2 * 1i * pi * i);  
 end
 
-figure(7);
-subplot(2,2,1);
+figure(17);
 colormap(flipud(jet(200)));
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count);
 hold on
@@ -180,8 +181,8 @@ axis xy
 hold off
 title('z^3-1 orbit')
 
-
-subplot(2,2,3);
+figure(18);
+colormap(flipud(jet(200)));
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin);
 hold on
 plot(real(rou3), imag(rou3), 'w*');
@@ -191,7 +192,7 @@ hold off
 title('z^3-1 basin of roots')
 
 
-subplot(2,2,2);
+figure(19)
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count2);
 hold on
 plot(real(rou4), imag(rou4), 'w*');
@@ -201,7 +202,7 @@ hold off
 title('z^4-1')
 colormap(flipud(jet(200)));
 
-subplot(2,2,4);
+figure(20)
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin2);
 hold on
 plot(real(rou4), imag(rou4), 'w*');
@@ -217,8 +218,8 @@ title('z^4-1 basin of roots')
 [count] = part_viii(0);
 [count2] = part_viii(1);
 
-figure(10);
-subplot(1,2,1)
+figure(21);
+
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-2.1, 0.5, 4000), linspace(-1.4, 1.4, 4000), log(count));
 axis equal
@@ -226,7 +227,8 @@ axis xy
 axis off
 title('Mandelbrot Set')
 
-subplot(1,2,2)
+figure(22);
+colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(0.2, 0.45, 4000), linspace(0.45, 0.71, 4000), log(count2));
 axis equal
 axis xy
