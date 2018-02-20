@@ -152,8 +152,8 @@ colormap( [jet(520); halfjet; 0 0 0] );
 
 %% Part vii
 
-[count] = part_vii(3);
-[count2] = part_vii(4);
+[count, basin] = part_vii(3);
+[count2, basin2] = part_vii(4);
 
 rou3 = zeros(3, 1);
 for i = 0:2
@@ -166,24 +166,47 @@ for i = 0:3
 end
 
 figure(7);
+subplot(2,2,1);
+colormap(flipud(jet(200)));
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count);
 hold on
-plot(real(rou3), imag(rou3), 'b*');
+plot(real(rou3), imag(rou3), 'w*');
 axis equal
 axis xy
 hold off
-title('z^3-1')
+title('z^3-1 orbit')
 
-figure(8);
+
+subplot(2,2,3);
+imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin);
+hold on
+plot(real(rou3), imag(rou3), 'w*');
+axis equal
+axis xy
+hold off
+title('z^3-1 basin of roots')
+
+
+subplot(2,2,2);
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count2);
 hold on
-plot(real(rou4), imag(rou4), 'b*');
+plot(real(rou4), imag(rou4), 'w*');
 axis equal
 axis xy
 hold off
 title('z^4-1')
-
 colormap(flipud(jet(200)));
+
+subplot(2,2,4);
+imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin2);
+hold on
+plot(real(rou4), imag(rou4), 'w*');
+axis equal
+axis xy
+hold off
+title('z^4-1 basin of roots')
+
+
 
 %% Part viii
 
