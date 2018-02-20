@@ -110,6 +110,10 @@ axis equal
 axis xy
 title('c = 0.36 + 0.1i')
 
+%% Part iv
+DJ1 = part_iv_i(J1)
+
+
 %% Part vi
 [count] = part_vi(0);
 [count1] = part_vi(1);
