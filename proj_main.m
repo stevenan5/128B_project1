@@ -149,6 +149,42 @@ axis xy
 axis off
 title('c = 0.36 + 0.1i')
 colormap( [jet(520); halfjet; 0 0 0] );
+
+%% Part vii
+
+[count] = part_vii(3);
+[count2] = part_vii(4);
+
+rou3 = zeros(3, 1);
+for i = 0:2
+   rou3(i + 1) = exp(2 / 3 * 1i * pi * i);  
+end
+
+rou4 = zeros(4, 1);
+for i = 0:3
+   rou4(i + 1) = exp(1 / 2 * 1i * pi * i);  
+end
+
+figure(7);
+imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count);
+hold on
+plot(real(rou3), imag(rou3), 'b*');
+axis equal
+axis xy
+hold off
+title('z^3-1')
+
+figure(8);
+imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count2);
+hold on
+plot(real(rou4), imag(rou4), 'b*');
+axis equal
+axis xy
+hold off
+title('z^4-1')
+
+colormap(flipud(jet(200)));
+
 %% Part viii
 
 [count] = part_viii(0);
