@@ -118,32 +118,58 @@ load('part_iii_matrix_data.mat')
 [J2X, J2Y, J2b] = part_ivRBC(J2_matrix);
 [J3X, J3Y, J3b] = part_ivRBC(J3_matrix);
 [J4X, J4Y, J4b] = part_ivRBC(J4_matrix);
-%scatter(log(J1X), log(J1Y))
-%lsline
-%[J2X, J2Y, J1b] = part_ivRBC(J2_matrix);
-%scatter(log(J2X), log(J2Y))
-%lsline
 
 figure(13);
 subplot(2,2,1); scatter(log(J1X), log(J1Y)) 
     lsline
     xlabel(strcat('D=',num2str(J1b)))
-    title('Reticular Box Counting Method for c = -1.25')
+    title('Reticular Cell Counting Method for c = -1.25')
     
 subplot(2,2,2); scatter(log(J2X), log(J2Y))
     lsline
     xlabel(strcat('D=',num2str(J2b)))
-    title('Reticular Box Counting Method for c = 0')
+    title('Reticular Cell Counting Method for c = 0')
     
 subplot(2,2,3); scatter(log(J3X), log(J3Y))
     lsline
     xlabel(strcat('D=',num2str(J3b)))
-    title('Reticular Box Counting Method for c = - 0.123 - 0.745i')
+    title('Reticular Cell Counting Method for c = - 0.123 - 0.745i')
     
 subplot(2,2,4); scatter(log(J4X), log(J4Y)) 
     lsline
     xlabel(strcat('D=',num2str(J4b)))
+<<<<<<< HEAD
     title('Reticular Box Counting Method for c = 0.36 + 0.1')
+=======
+    title('Reticular Cell Counting Method for c = 0.36 + 0.1')
+    
+[J1X, J1Y, J1b] = part_ivKA(J1_matrix);
+[J2X, J2Y, J2b] = part_ivKA(J2_matrix);
+[J3X, J3Y, J3b] = part_ivKA(J3_matrix);
+[J4X, J4Y, J4b] = part_ivKA(J4_matrix);
+
+figure(14);
+subplot(2,2,1); scatter(log(J1X), log(J1Y)) 
+    lsline
+    xlabel(strcat('D=',num2str(J1b)))
+    title('Keller Approach for c = -1.25')
+    
+subplot(2,2,2); scatter(log(J2X), log(J2Y))
+    lsline
+    xlabel(strcat('D=',num2str(J2b)))
+    title('Keller Approach for c = 0')
+    
+subplot(2,2,3); scatter(log(J3X), log(J3Y))
+    lsline
+    xlabel(strcat('D=',num2str(J3b)))
+    title('Keller Approach for c = - 0.123 - 0.745i')
+    
+subplot(2,2,4); scatter(log(J4X), log(J4Y)) 
+    lsline
+    xlabel(strcat('D=',num2str(J4b)))
+    title('Keller Approach for c = 0.36 + 0.1')
+
+>>>>>>> 05589b9... finalized part iv algorithms and updated report
 %% Part v
 
 connected_1 = part_v(-1.25);
