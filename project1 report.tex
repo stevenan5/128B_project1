@@ -62,7 +62,8 @@ Program implemented as detailed.
 The Julia sets that are the results match the filled Julia sets computed in (ii).
 
 \subsection*{Part (iv)}
-
+The \emph{fractal dimension} is a measure of roughness of an object. If one thinks of an object as having a sort of mass, then the fractal dimension is the power by which it's mass changes as its size is scaled. When the object is placed on a grid, its mass can be visualized as the number of boxes touched by the object. As the object (or equivalently the grid) scales in size, then the mass will scale by the scaling factor raised to its fractal dimension. That is, if an object touches $n$ boxes at size $1$, and touches $m$ boxes at size $\frac{1}{2}$, then its fractal dimension $d$ is given by $d\approx\log_{2}{\frac{m}{n}}$. To empirically test this, we can measure the change in mass for many different scaling factors, take the log of the output and find the slope $\left(d\right)$ with linear regression. From Bisoi and Mishra 2000, we use the Reticular Cell Counting Method and Keller's Approach to measure the fractal dimension of the objects produced in part iii.\\
+We only use six data points for each, but find that the cell counting method provides a very good measurement for the 1-dimensional circle ($c=0$). The resolution for part iii constrains the mesh sizes for part iv. While a sample size of six is statistically unreliable, it seems to work quite well for the cell counting method. However, the error in numbers produced by Keller's method may be attributed to this small sample size.
 \subsection*{Part (v)}
 See attached.
 For the four values of $c$ chosen, the computer showed that their respective Julia sets were connected because $orb(0)$ did not diverge.
