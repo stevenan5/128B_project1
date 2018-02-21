@@ -145,6 +145,17 @@ subplot(2,2,4); scatter(log(J4X), log(J4Y))
     lsline
     xlabel(strcat('D=',num2str(J4b)))
     title('Reticular Box Counting Method for c = 0.36 + 0.1')
+%% Part v
+
+connected_1 = part_v(-1.25);
+connected_2 = part_v(0);
+connected_3 = part_v(0.36 + 0.1i);
+connected_4 = part_v(- 0.123 - 0.745i);
+
+fprintf('For c = -1.25, boolean value for connected is %d\n', connected_1);
+fprintf('For c = 0, boolean value for connected is %d\n', connected_2);
+fprintf('For c = 0.36 + 0.1i, boolean value for connected is %d\n', connected_3);
+fprintf('For c = -0.123 - 0.745i, boolean value for connected is %d\n', connected_4);
 
 %% Part vi
 [count] = part_vi(0);
