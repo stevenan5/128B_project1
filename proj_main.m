@@ -1,5 +1,4 @@
 % Execution of all parts.
-% parfor is used in the interest of runtime.
 
 clc;
 clear;
@@ -18,14 +17,14 @@ figure(1);
 colormap([1 0 0; 1 1 1]);      % Set the color map, 1 is red, 2 is white.
 image([-1.8 1.8],[-.7 .7],M1), % This plots the results.
 axis xy                        % If you don't do this, vertical axis is inverted.
-title('c=-1.25')
+title('c = -1.25')
 
 figure(2)
 colormap([1 0 0; 1 1 1]); 
 image([-1 1],[-1 1],M2),
-axis image;               % makes the image square.
+axis image;                    % makes the image square.
 axis xy
-title('c=0')
+title('c = 0')
 
 %% Part ii
 
@@ -44,7 +43,7 @@ figure(3);
 colormap([1 0 0; 1 1 1]);
 image([-1.8 1.8],[-.7 .7],P1),
 axis xy
-title('c=0.36+0.1i')
+title('c = 0.36 + 0.1i')
 xlabel('no perturb')
 
 figure(4);
@@ -52,14 +51,14 @@ colormap([1 0 0; 1 1 1]);
 image([-1.9 1.9],[-.8 .8],P2),
 axis xy
 title('c=0.36+0.1i')
-xlabel('pert: 1, 1')
+xlabel('pert +0.4')
 
 figure(5);
 colormap([1 0 0; 1 1 1]);
 image([-2 2],[-.9 .9],P3), 
 axis xy
 title('c=0.36+0.1i')
-xlabel('pert: 2, 2')
+xlabel('pert +0.6')
 
 figure(6);
 colormap([1 0 0; 1 1 1]);
@@ -73,14 +72,14 @@ colormap([1 0 0; 1 1 1]);
 image([-1.9 1.9],[-.8 .8],P5),
 axis xy
 title('c=-0.123-0.745i')
-xlabel('pert: 1, 1')
+xlabel('pert + 0.4')
 
 figure(8);
 colormap([1 0 0; 1 1 1]);
 image([-2 2],[-.9 .9],P6), 
 axis xy
 title('c=-0.123-0.745i')
-xlabel('pert: 2, 2')
+xlabel('pert +0.6')
 
 %% Part iii 
 
@@ -158,6 +157,7 @@ fprintf('For c = 0.36 + 0.1i, boolean value for connected is %d\n', connected_3)
 fprintf('For c = -0.123 - 0.745i, boolean value for connected is %d\n', connected_4);
 
 %% Part vi
+
 [count] = part_vi(0);
 [count1] = part_vi(1);
 [count2] = part_vi(2);
@@ -201,6 +201,7 @@ colormap( [jet(520); halfjet; 0 0 0] );
 [count, basin] = part_vii(3);
 [count2, basin2] = part_vii(4);
 
+% compute roots of unity
 rou3 = zeros(3, 1);
 for i = 0:2
    rou3(i + 1) = exp(2 / 3 * 1i * pi * i);  
@@ -229,7 +230,7 @@ plot(real(rou3), imag(rou3), 'w*');
 axis equal
 axis xy
 hold off
-title('z^3-1 basin of roots')
+title('z^3 - 1 basin of roots')
 
 
 figure(19)
@@ -239,7 +240,7 @@ plot(real(rou4), imag(rou4), 'w*');
 axis equal
 axis xy
 hold off
-title('z^4-1')
+title('z^4 - 1')
 colormap(flipud(jet(200)));
 
 figure(20)
@@ -249,7 +250,7 @@ plot(real(rou4), imag(rou4), 'w*');
 axis equal
 axis xy
 hold off
-title('z^4-1 basin of roots')
+title('z^4 - 1 basin of roots')
 
 
 
