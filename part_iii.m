@@ -69,20 +69,23 @@ for j=1:y_sample                   % Try initial values with imaginary parts bet
     end
   end
 end
+
 % make the result into a matrix for (iv)
-[X, Y] = meshgrid(linspace(nx, -nx, -nx * 400 + 1), linspace(ny, -ny, -ny * 400 + 1));
-Z = X + 1i * Y;
-res_mat = ones(-ny * 400 + 1, -nx * 400 + 1);
-for i=1:count
+%[X, Y] = meshgrid(linspace(nx, -nx, -nx * 400 + 1), linspace(ny, -ny, -ny * 400 + 1));
+%Z = X + 1i * Y;
+%res_mat = ones(-ny * 400 + 1, -nx * 400 + 1);
+%for i=1:count
     
-      check = abs(Z - res(i));
-      min_row = min(check, [], 2);
-      min_col = min(check, [], 1);
-      [~, row_ind] = min(min_row);
-      [~, col_ind] = min(min_col);
-      % matlab refuses to graph with 0 and 1 as values
-      res_mat(row_ind, col_ind) = 2;
+%      check = abs(Z - res(i));
+%      min_row = min(check, [], 2);
+%      min_col = min(check, [], 1);
+%      [~, row_ind] = min(min_row);
+%      [~, col_ind] = min(min_col);
+%      % matlab refuses to graph with 0 and 1 as values
+%      res_mat(row_ind, col_ind) = 2;
       
-end
+%end
+
+res_mat=1;
 
 end

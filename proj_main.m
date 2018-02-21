@@ -13,7 +13,7 @@ halfjet = j(1:130, :);
 % the code for plotting has been moved outside of the function 
 
 [M1, M2] = part_i();
-figure(1);
+figure(1)
 colormap([1 0 0; 1 1 1]);      % Set the color map, 1 is red, 2 is white.
 image([-1.8 1.8],[-.7 .7],M1), % This plots the results.
 axis xy                        % If you don't do this, vertical axis is inverted.
@@ -72,7 +72,7 @@ colormap([1 0 0; 1 1 1]);
 image([-1.9 1.9],[-.8 .8],P5),
 axis xy
 title('c=-0.123-0.745i')
-xlabel('pert + 0.4')
+xlabel('pert +0.4')
 
 figure(8);
 colormap([1 0 0; 1 1 1]);
@@ -123,25 +123,22 @@ figure(13);
 subplot(2,2,1); scatter(log(J1X), log(J1Y)) 
     lsline
     xlabel(strcat('D=',num2str(J1b)))
-    title('Reticular Cell Counting Method for c = -1.25')
+    title('Cell Counting for c = -1.25')
     
 subplot(2,2,2); scatter(log(J2X), log(J2Y))
     lsline
     xlabel(strcat('D=',num2str(J2b)))
-    title('Reticular Cell Counting Method for c = 0')
+    title('Cell Counting for c = 0')
     
 subplot(2,2,3); scatter(log(J3X), log(J3Y))
     lsline
     xlabel(strcat('D=',num2str(J3b)))
-    title('Reticular Cell Counting Method for c = - 0.123 - 0.745i')
+    title('Cell Count. for c= -0.123 - 0.745i')
     
 subplot(2,2,4); scatter(log(J4X), log(J4Y)) 
     lsline
     xlabel(strcat('D=',num2str(J4b)))
-<<<<<<< HEAD
-    title('Reticular Box Counting Method for c = 0.36 + 0.1')
-=======
-    title('Reticular Cell Counting Method for c = 0.36 + 0.1')
+    title('Cell Count. for c = 0.36 + 0.1i')
     
 [J1X, J1Y, J1b] = part_ivKA(J1_matrix);
 [J2X, J2Y, J2b] = part_ivKA(J2_matrix);
@@ -152,22 +149,22 @@ figure(14);
 subplot(2,2,1); scatter(log(J1X), log(J1Y)) 
     lsline
     xlabel(strcat('D=',num2str(J1b)))
-    title('Keller Approach for c = -1.25')
+    title('Keller for c = -1.25')
     
 subplot(2,2,2); scatter(log(J2X), log(J2Y))
     lsline
     xlabel(strcat('D=',num2str(J2b)))
-    title('Keller Approach for c = 0')
+    title('Keller for c = 0')
     
 subplot(2,2,3); scatter(log(J3X), log(J3Y))
     lsline
     xlabel(strcat('D=',num2str(J3b)))
-    title('Keller Approach for c = - 0.123 - 0.745i')
+    title('Keller for c = - 0.123 - 0.745i')
     
 subplot(2,2,4); scatter(log(J4X), log(J4Y)) 
     lsline
     xlabel(strcat('D=',num2str(J4b)))
-    title('Keller Approach for c = 0.36 + 0.1')
+    title('Keller for c = 0.36 + 0.1')
 
 >>>>>>> 05589b9... finalized part iv algorithms and updated report
 %% Part v
@@ -189,7 +186,7 @@ fprintf('For c = -0.123 - 0.745i, boolean value for connected is %d\n', connecte
 [count2] = part_vi(2);
 [count3] = part_vi(3);
 
-figure(13);
+figure(15);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count));
 axis equal
@@ -197,7 +194,7 @@ axis xy
 axis off
 title('c = -1.25')
 
-figure(14);
+figure(16);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1, 1, 2001), linspace(-1, 1, 2001), log(count1));
 axis equal
@@ -205,7 +202,7 @@ axis xy
 axis off
 title('c = 0')
 
-figure(15);
+figure(17);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count2));
 axis equal
@@ -213,7 +210,7 @@ axis xy
 axis off
 title('c = - 0.123 - 0.745i')
 
-figure(16);
+figure(18);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-1.4, 1.4, 2801), linspace(-1.4, 1.4, 2801), log(count3));
 axis equal
@@ -238,7 +235,7 @@ for i = 0:3
    rou4(i + 1) = exp(1 / 2 * 1i * pi * i);  
 end
 
-figure(17);
+figure(19);
 colormap(flipud(jet(200)));
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count);
 hold on
@@ -248,7 +245,7 @@ axis xy
 hold off
 title('z^3-1 orbit')
 
-figure(18);
+figure(20);
 colormap(flipud(jet(200)));
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin);
 hold on
@@ -259,7 +256,7 @@ hold off
 title('z^3 - 1 basin of roots')
 
 
-figure(19)
+figure(21)
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), count2);
 hold on
 plot(real(rou4), imag(rou4), 'w*');
@@ -269,7 +266,7 @@ hold off
 title('z^4 - 1')
 colormap(flipud(jet(200)));
 
-figure(20)
+figure(22)
 imagesc(linspace(-3, 3, 601), linspace(-3, 3, 601), basin2);
 hold on
 plot(real(rou4), imag(rou4), 'w*');
@@ -285,7 +282,7 @@ title('z^4 - 1 basin of roots')
 [count] = part_viii(0);
 [count2] = part_viii(1);
 
-figure(21);
+figure(23);
 
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(-2.1, 0.5, 4000), linspace(-1.4, 1.4, 4000), log(count));
@@ -294,7 +291,7 @@ axis xy
 axis off
 title('Mandelbrot Set')
 
-figure(22);
+figure(24);
 colormap( [jet(520); halfjet; 0 0 0] );
 imagesc(linspace(0.2, 0.45, 4000), linspace(0.45, 0.71, 4000), log(count2));
 axis equal
